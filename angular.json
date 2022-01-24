@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "ngx-pwa-ui": "apps/ngx-pwa-ui",
-    "ngx-pwa-ui-e2e": "apps/ngx-pwa-ui-e2e"
+    "ngx-pwa-ui-e2e": "apps/ngx-pwa-ui-e2e",
+    "notification-api": "apps/notification-api"
   }
 }
