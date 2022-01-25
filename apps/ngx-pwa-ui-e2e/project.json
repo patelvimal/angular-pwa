@@ -1,28 +1,28 @@
 {
-  "root": "apps/ngx-pwa-ui-e2e",
-  "sourceRoot": "apps/ngx-pwa-ui-e2e/src",
-  "projectType": "application",
-  "targets": {
-    "e2e": {
-      "executor": "@nrwl/cypress:cypress",
-      "options": {
-        "cypressConfig": "apps/ngx-pwa-ui-e2e/cypress.json",
-        "devServerTarget": "ngx-pwa-ui:serve:development"
-      },
-      "configurations": {
-        "production": {
-          "devServerTarget": "ngx-pwa-ui:serve:production"
+    "root": "apps/ngx-pwa-ui-e2e",
+    "sourceRoot": "apps/ngx-pwa-ui-e2e/src",
+    "projectType": "application",
+    "targets": {
+        "e2e": {
+            "executor": "@nrwl/cypress:cypress",
+            "options": {
+                "cypressConfig": "apps/ngx-pwa-ui-e2e/cypress.json",
+                "devServerTarget": "ngx-pwa-ui:serve:development"
+            },
+            "configurations": {
+                "production": {
+                    "devServerTarget": "ngx-pwa-ui:serve:production"
+                }
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["apps/ngx-pwa-ui-e2e/**/*.{js,ts}"]
+            }
         }
-      }
     },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/ngx-pwa-ui-e2e/**/*.{js,ts}"]
-      }
-    }
-  },
-  "tags": [],
-  "implicitDependencies": ["ngx-pwa-ui"]
+    "tags": [],
+    "implicitDependencies": ["ngx-pwa-ui"]
 }
