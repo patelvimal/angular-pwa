@@ -1,94 +1,97 @@
 {
-  "projectType": "application",
-  "root": "apps/ngx-pwa-ui",
-  "sourceRoot": "apps/ngx-pwa-ui/src",
-  "prefix": "angular-pwa",
-  "targets": {
-    "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/ngx-pwa-ui",
-        "index": "apps/ngx-pwa-ui/src/index.html",
-        "main": "apps/ngx-pwa-ui/src/main.ts",
-        "polyfills": "apps/ngx-pwa-ui/src/polyfills.ts",
-        "tsConfig": "apps/ngx-pwa-ui/tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/ngx-pwa-ui/src/favicon.ico",
-          "apps/ngx-pwa-ui/src/assets"
-        ],
-        "styles": ["apps/ngx-pwa-ui/src/styles.scss"],
-        "scripts": []
-      },
-      "configurations": {
-        "production": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+    "projectType": "application",
+    "root": "apps/ngx-pwa-ui",
+    "sourceRoot": "apps/ngx-pwa-ui/src",
+    "prefix": "angular-pwa",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:browser",
+            "outputs": ["{options.outputPath}"],
+            "options": {
+                "outputPath": "dist/apps/ngx-pwa-ui",
+                "index": "apps/ngx-pwa-ui/src/index.html",
+                "main": "apps/ngx-pwa-ui/src/main.ts",
+                "polyfills": "apps/ngx-pwa-ui/src/polyfills.ts",
+                "tsConfig": "apps/ngx-pwa-ui/tsconfig.app.json",
+                "inlineStyleLanguage": "scss",
+                "assets": [
+                    "apps/ngx-pwa-ui/src/favicon.ico",
+                    "apps/ngx-pwa-ui/src/assets",
+                    "apps/ngx-pwa-ui/src/manifest.webmanifest"
+                ],
+                "styles": ["apps/ngx-pwa-ui/src/styles.scss"],
+                "scripts": [],
+                "serviceWorker": true,
+                "ngswConfigPath": "apps/ngx-pwa-ui/ngsw-config.json"
             },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
-            }
-          ],
-          "fileReplacements": [
-            {
-              "replace": "apps/ngx-pwa-ui/src/environments/environment.ts",
-              "with": "apps/ngx-pwa-ui/src/environments/environment.prod.ts"
-            }
-          ],
-          "outputHashing": "all"
+            "configurations": {
+                "production": {
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "500kb",
+                            "maximumError": "1mb"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "2kb",
+                            "maximumError": "4kb"
+                        }
+                    ],
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/ngx-pwa-ui/src/environments/environment.ts",
+                            "with": "apps/ngx-pwa-ui/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "outputHashing": "all"
+                },
+                "development": {
+                    "buildOptimizer": false,
+                    "optimization": false,
+                    "vendorChunk": true,
+                    "extractLicenses": false,
+                    "sourceMap": true,
+                    "namedChunks": true
+                }
+            },
+            "defaultConfiguration": "production"
         },
-        "development": {
-          "buildOptimizer": false,
-          "optimization": false,
-          "vendorChunk": true,
-          "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
-        }
-      },
-      "defaultConfiguration": "production"
-    },
-    "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "browserTarget": "ngx-pwa-ui:build:production"
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "configurations": {
+                "production": {
+                    "browserTarget": "ngx-pwa-ui:build:production"
+                },
+                "development": {
+                    "browserTarget": "ngx-pwa-ui:build:development"
+                }
+            },
+            "defaultConfiguration": "development"
         },
-        "development": {
-          "browserTarget": "ngx-pwa-ui:build:development"
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+                "browserTarget": "ngx-pwa-ui:build"
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "apps/ngx-pwa-ui/src/**/*.ts",
+                    "apps/ngx-pwa-ui/src/**/*.html"
+                ]
+            }
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/apps/ngx-pwa-ui"],
+            "options": {
+                "jestConfig": "apps/ngx-pwa-ui/jest.config.js",
+                "passWithNoTests": true
+            }
         }
-      },
-      "defaultConfiguration": "development"
     },
-    "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
-      "options": {
-        "browserTarget": "ngx-pwa-ui:build"
-      }
-    },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "options": {
-        "lintFilePatterns": [
-          "apps/ngx-pwa-ui/src/**/*.ts",
-          "apps/ngx-pwa-ui/src/**/*.html"
-        ]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/ngx-pwa-ui"],
-      "options": {
-        "jestConfig": "apps/ngx-pwa-ui/jest.config.js",
-        "passWithNoTests": true
-      }
-    }
-  },
-  "tags": []
+    "tags": []
 }
