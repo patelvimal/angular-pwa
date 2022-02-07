@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
-    declarations: [AppComponent, NxWelcomeComponent, WelcomeComponent],
+    declarations: [AppComponent, WelcomeComponent],
     imports: [
         BrowserModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
