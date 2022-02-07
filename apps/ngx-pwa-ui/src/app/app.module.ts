@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
-    declarations: [AppComponent, NxWelcomeComponent],
+    declarations: [AppComponent, NxWelcomeComponent, WelcomeComponent],
     imports: [
         BrowserModule,
         ServiceWorkerModule.register('ngsw-worker.js', {
