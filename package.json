@@ -9,6 +9,7 @@
     "build": "nx build",
     "test": "nx test",
     "serve:all": "nx run-many --target=serve --all",
+    "build:all": "nx run-many --target=build --all",
     "test:all": "nx run-many --target=test --all",
     "lint:all": "nx run-many --target=lint --all",
     "prettier": "pretty-quick --staged",
@@ -39,7 +40,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.1.0",
+    "@angular-devkit/build-angular": "^13.2.2",
     "@angular-eslint/eslint-plugin": "~13.0.1",
     "@angular-eslint/eslint-plugin-template": "~13.0.1",
     "@angular-eslint/template-parser": "~13.0.1",
