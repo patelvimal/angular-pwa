@@ -1,0 +1,12 @@
+{
+    "hosting": {
+        "public": "dist/apps/ngx-pwa-ui",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+        "rewrites": [
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
+        ]
+    }
+}
